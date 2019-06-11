@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import WebChat from './components/WebChat/WebChat';
+import IphoneWrapper from './components/IphoneWrapper/IphoneWrapper';
 
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <WebChat />
+        <IphoneWrapper>
+          <WebChat />
+        </IphoneWrapper>
       </header>
     </div>
   );
