@@ -1,5 +1,5 @@
 {
-  "name": "Kraken Chatbot",
+  "name": "kraken-chatbot-web",
   "description": "This is the web application for the Team Kraken Chatbot",
   "version": "0.1.0",
   "private": true,
