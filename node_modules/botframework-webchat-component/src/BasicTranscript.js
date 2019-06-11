@@ -1,0 +1,146 @@
+import { Composer as SayComposer } from 'react-say';
+import { css } from 'glamor';
+import classNames from 'classnames';
+import React from 'react';
+import { Panel as ScrollToBottomPanel } from 'react-scroll-to-bottom';
+
+import connectToWebChat from './connectToWebChat';
+import ScrollToEndButton from './Activity/ScrollToEndButton';
+import SpeakActivity from './Activity/Speak';
+
+const ROOT_CSS = css({
+  overflow: 'hidden',
+  position: 'relative'
+});
+
+const PANEL_CSS = css({
+  display: 'flex',
+  flexDirection: 'column',
+  WebkitOverflowScrolling: 'touch'
+});
+
+const FILLER_CSS = css({
+  flex: 1
+});
+
+const LIST_CSS = css({
+  listStyleType: 'none',
+
+  '& > li.hide-timestamp .transcript-timestamp': {
+    display: 'none'
+  }
+});
+
+function sameTimestampGroup(activityX, activityY, groupTimestamp) {
+  if (groupTimestamp === false) {
+    return true;
+  } else if (activityX && activityY) {
+    groupTimestamp = typeof groupTimestamp === 'number' ? groupTimestamp : 5 * 60 * 1000;
+
+    if (activityX.from.role === activityY.from.role) {
+      const timeX = new Date(activityX.timestamp).getTime();
+      const timeY = new Date(activityY.timestamp).getTime();
+
+      return Math.abs(timeX - timeY) <= groupTimestamp;
+    }
+  }
+
+  return false;
+}
+
+const BasicTranscript = ({
+  activityRenderer,
+  activities,
+  attachmentRenderer,
+  className,
+  groupTimestamp,
+  styleSet,
+  webSpeechPonyfill
+}) => {
+  const { speechSynthesis, SpeechSynthesisUtterance } = webSpeechPonyfill || {};
+
+  // We use 2-pass approach for rendering activities, for show/hide timestamp grouping.
+  // Until the activity pass thru middleware, we never know if it is going to show up.
+  // After we know which activities will show up, we can compute which activity will show timestamps.
+  // If the activity does not render, it will not be spoken if text-to-speech is enabled.
+  const activityElements = activities.reduce((activityElements, activity) => {
+    const element = activityRenderer({
+      activity,
+      timestampClassName: 'transcript-timestamp'
+    })(
+      ({ attachment }) => attachmentRenderer({ activity, attachment })
+    );
+
+    element && activityElements.push({
+      activity,
+      element
+    });
+
+    return activityElements;
+  }, []);
+
+  return (
+    <div
+      className={ classNames(
+        ROOT_CSS + '',
+        (className || '') + ''
+      ) }
+      role="log"
+    >
+      <ScrollToBottomPanel className={ PANEL_CSS + '' }>
+        <div className={ FILLER_CSS } />
+        <SayComposer
+          speechSynthesis={ speechSynthesis }
+          speechSynthesisUtterance={ SpeechSynthesisUtterance }
+        >
+          <ul
+            aria-live="polite"
+            className={ classNames(LIST_CSS + '', styleSet.activities + '') }
+            role="list"
+          >
+            {
+              activityElements.map(({ activity, element }, index) =>
+                <li
+                  className={ classNames(
+                    styleSet.activity + '',
+                    {
+                      // Hide timestamp if same timestamp group with the next activity
+                      'hide-timestamp': sameTimestampGroup(activity, (activityElements[index + 1] || {}).activity, groupTimestamp)
+                    }
+                  ) }
+                  key={ (activity.channelData && activity.channelData.clientActivityID) || activity.id || index }
+                  role="listitem"
+                >
+                  { element }
+                  {
+                    // TODO: [P2] We should use core/definitions/speakingActivity for this predicate instead
+                    activity.channelData && activity.channelData.speak && <SpeakActivity activity={ activity } />
+                  }
+                </li>
+              )
+            }
+          </ul>
+        </SayComposer>
+      </ScrollToBottomPanel>
+      <ScrollToEndButton />
+    </div>
+  );
+}
+
+export default connectToWebChat(
+  ({
+    activities,
+    activityRenderer,
+    attachmentRenderer,
+    groupTimestamp,
+    styleSet,
+    webSpeechPonyfill
+  }) => ({
+    activities,
+    activityRenderer,
+    attachmentRenderer,
+    groupTimestamp,
+    styleSet,
+    webSpeechPonyfill
+  })
+)(BasicTranscript)
