@@ -1,0 +1,16 @@
+{
+  "name": "azure-express-server",
+  "version": "1.0.0",
+  "description": "The backend server that gets deployed to azure - needs the static build directory from react-build",
+  "main": "server.js",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "express": "~4.16.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT"
+}

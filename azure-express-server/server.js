@@ -1,9 +1,7 @@
-// @ts-check
 const express = require('express');
 const http = require('http');
 const cookieParser = require('cookie-parser');
-// const request = require('request');
-// const util = require('./util');
+const path = require('path');
 
 async function main() {
   // Azure App Service will set process.env.port for you,
