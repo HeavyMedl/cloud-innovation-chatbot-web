@@ -5,7 +5,7 @@ export default ({ children }) => {
   return (
     <div className={styles.Phone}>
       <div className={styles['Phone-screen']}>
-        <div className='Phone-content'>{children}</div>
+        <div className={styles['Phone-content']}>{children}</div>
       </div>
     </div>
   );
