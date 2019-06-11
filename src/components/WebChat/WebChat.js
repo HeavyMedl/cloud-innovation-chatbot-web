@@ -11,6 +11,6 @@ export default class extends React.Component {
   }
 
   render() {
-    return <ReactWebChat className='kurt' directLine={this.directLine} />;
+    return <ReactWebChat directLine={this.directLine} />;
   }
 }
