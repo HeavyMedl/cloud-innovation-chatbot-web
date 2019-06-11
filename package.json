@@ -1,7 +1,9 @@
 {
-  "name": "",
+  "name": "Kraken Chatbot",
+  "description": "This is the web application for the Team Kraken Chatbot",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -9,14 +11,12 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "http-errors": "~1.6.3"
   },
   "scripts": {
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "react": "react-scripts start",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "react-start": "react-scripts start",
     "react-build": "react-scripts build",
     "express-server": "node server.js"
   },
