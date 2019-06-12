@@ -1,332 +1,244 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Hidden from '@material-ui/core/Hidden';
-import Link from '@material-ui/core/Link';
+import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import kraken from '../../images/kraken.png';
-import costcoLogo from '../../images/costco-logo.png';
-import savingsBanner from '../../images/member-savings-banner.jpg';
+import Box from '@material-ui/core/Box';
+import { Card, CardContent, Paper, Divider } from '@material-ui/core';
+
+import WebChat from '../WebChat/WebChat';
+import krakenLogo from '../../images/kraken.png';
 
 function MadeWithLove() {
   return (
     <Typography variant='body2' color='textSecondary' align='center'>
-      {'Built with love by the '}
-      <Link color='inherit' href='https://material-ui.com/'>
-        Material-UI
-      </Link>
-      {' team.'}
+      {'Built with love by Team Kraken'}
     </Typography>
   );
 }
-
 const useStyles = makeStyles(theme => ({
-  toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`
-  },
-  toolbarTitle: {
-    flex: 1
-  },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto'
-  },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0
-  },
-  mainFeaturedPost: {
-    position: 'relative',
-    height: '350px',
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
-    backgroundImage: `url(${savingsBanner})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    backgroundColor: 'rgba(0,0,0,.3)'
-  },
-  mainFeaturedPostContent: {
-    position: 'relative',
-    padding: theme.spacing(3),
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
-      paddingRight: 0
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white
+    },
+    ul: {
+      margin: 0,
+      padding: 0
+    },
+    li: {
+      listStyle: 'none'
     }
   },
-  mainGrid: {
-    marginTop: theme.spacing(3)
+  appBar: {
+    borderBottom: `1px solid ${theme.palette.divider}`
+  },
+  toolbar: {
+    flexWrap: 'wrap'
+  },
+  toolbarTitle: {
+    flexGrow: 1
+  },
+  link: {
+    margin: theme.spacing(1, 1.5)
+  },
+  heroContent: {
+    padding: theme.spacing(8, 0, 6)
   },
   card: {
-    display: 'flex'
+    height: '500px'
   },
-  cardDetails: {
-    flex: 1
+  cardContent: {
+    height: '100%',
+    paddingBottom: '15px'
   },
-  cardMedia: {
-    width: 160
-  },
-  markdown: {
-    ...theme.typography.body2,
-    padding: theme.spacing(3, 0)
-  },
-  sidebarAboutBox: {
-    padding: theme.spacing(2),
+  cardHeader: {
     backgroundColor: theme.palette.grey[200]
   },
-  sidebarSection: {
-    marginTop: theme.spacing(3)
+  cardPricing: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'baseline',
+    marginBottom: theme.spacing(2)
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
-    padding: theme.spacing(6, 0)
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6)
+    }
   }
 }));
 
-const sections = [
-  'Technology',
-  'Design',
-  'Culture',
-  'Business',
-  'Politics',
-  'Opinion',
-  'Science',
-  'Health',
-  'Style',
-  'Travel'
-];
-
-const featuredPosts = [
+const footers = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.'
+    title: 'Company',
+    description: ['Team', 'History', 'Contact us', 'Locations']
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.'
+    title: 'Features',
+    description: [
+      'Cool stuff',
+      'Random feature',
+      'Team feature',
+      'Developer stuff',
+      'Another one'
+    ]
+  },
+  {
+    title: 'Resources',
+    description: [
+      'Resource',
+      'Resource name',
+      'Another resource',
+      'Final resource'
+    ]
+  },
+  {
+    title: 'Legal',
+    description: ['Privacy policy', 'Terms of use']
   }
 ];
 
-// const posts = [post1];
-
-const archives = [
-  'March 2020',
-  'February 2020',
-  'January 2020',
-  'December 2019',
-  'November 2019',
-  'October 2019',
-  'September 2019',
-  'August 2019',
-  'July 2019',
-  'June 2019',
-  'May 2019',
-  'April 2019'
-];
-
-const social = ['GitHub', 'Twitter', 'Facebook'];
-
-export default function Blog() {
+export default function Pricing() {
   const classes = useStyles();
 
   return (
     <React.Fragment>
-      <Container maxWidth='lg'>
+      <AppBar
+        position='static'
+        color='default'
+        elevation={0}
+        className={classes.appBar}
+      >
         <Toolbar className={classes.toolbar}>
-          <Button size='small'>
+          <Link
+            variant='button'
+            color='textPrimary'
+            href='#'
+            className={classes.link}
+          >
             <img
-              // style={{ height: '30px', marginTop: '10px' }}
-              src={kraken}
-              alt='kraken-logo'
-              style={{ height: '30px' }}
+              style={{ maxHeight: '30px', marginTop: '8px' }}
+              src={krakenLogo}
+              alt='background'
             />
-          </Button>
+          </Link>
           <Typography
-            component='h2'
-            variant='h5'
+            variant='h6'
             color='inherit'
-            align='center'
             noWrap
             className={classes.toolbarTitle}
           >
-            <img
-              style={{ height: '30px', marginTop: '8px' }}
-              src={costcoLogo}
-              alt='costco-logo'
-            />
+            Team Kraken
           </Typography>
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-          <Button variant='outlined' size='small'>
-            Sign In
+          <nav>
+            <Link
+              variant='button'
+              color='textPrimary'
+              href='#'
+              className={classes.link}
+            >
+              Mobile
+            </Link>
+            <Link
+              variant='button'
+              color='textPrimary'
+              href='#'
+              className={classes.link}
+            >
+              Orders
+            </Link>
+          </nav>
+          <Button
+            href='#'
+            color='primary'
+            variant='outlined'
+            className={classes.link}
+          >
+            Login
           </Button>
         </Toolbar>
-        <Toolbar
-          component='nav'
-          variant='dense'
-          className={classes.toolbarSecondary}
+      </AppBar>
+      {/* Hero unit */}
+      <Container maxWidth='sm' component='main' className={classes.heroContent}>
+        <Typography
+          component='h1'
+          variant='h2'
+          align='center'
+          color='textPrimary'
+          gutterBottom
         >
-          {sections.map(section => (
-            <Link
-              color='inherit'
-              noWrap
-              key={section}
-              variant='body2'
-              href='#'
-              className={classes.toolbarLink}
-            >
-              {section}
-            </Link>
-          ))}
-        </Toolbar>
-        <main>
-          {/* Main featured post */}
-          <Paper className={classes.mainFeaturedPost}>
-            {/* Increase the priority of the hero background image */}
-            {
-              <img
-                style={{ display: 'none' }}
-                src='https://source.unsplash.com/user/erondu'
-                alt='background'
-              />
-            }
-          </Paper>
-          {/* End main featured post */}
-          {/* Sub featured posts */}
-          <Grid container spacing={4} className={classes.cardGrid}>
-            {featuredPosts.map(post => (
-              <Grid item key={post.title} xs={12} md={6}>
-                <CardActionArea component='a' href='#'>
-                  <Card className={classes.card}>
-                    <div className={classes.cardDetails}>
-                      <CardContent>
-                        <Typography component='h2' variant='h5'>
-                          {post.title}
-                        </Typography>
-                        <Typography variant='subtitle1' color='textSecondary'>
-                          {post.date}
-                        </Typography>
-                        <Typography variant='subtitle1' paragraph>
-                          {post.description}
-                        </Typography>
-                        <Typography variant='subtitle1' color='primary'>
-                          Continue reading...
-                        </Typography>
-                      </CardContent>
-                    </div>
-                    <Hidden xsDown>
-                      <CardMedia
-                        className={classes.cardMedia}
-                        image='https://source.unsplash.com/random'
-                        title='Image title'
-                      />
-                    </Hidden>
-                  </Card>
-                </CardActionArea>
-              </Grid>
-            ))}
-          </Grid>
-          {/* End sub featured posts */}
-          <Grid container spacing={5} className={classes.mainGrid}>
-            {/* Main content */}
-            <Grid item xs={12} md={8}>
-              <Typography variant='h6' gutterBottom>
-                From the Firehose
-              </Typography>
-              <Divider />
-              {/* {posts.map(post => (
-                <Markdown
-                  className={classes.markdown}
-                  key={post.substring(0, 40)}
-                >
+          Ask C.R.A.I.G.
+        </Typography>
+        <Typography
+          variant='h5'
+          align='center'
+          color='textSecondary'
+          component='p'
+        >
+          A loosely coupled Chatbot built on Azure serving Costco retail needs.
+        </Typography>
+      </Container>
+      {/* End hero unit */}
+      <Container maxWidth='md' component='main'>
+        <Grid container spacing={5} className={classes.mainGrid}>
+          {/* Main content */}
+          <Grid item xs={12} md={6}>
+            <Typography variant='h6'>About C.R.A.I.G.</Typography>
+            <Divider />
+            {/* {posts.map(post => (
+                <Markdown className={classes.markdown} key={post.substring(0, 40)}>
                   {post}
                 </Markdown>
               ))} */}
-            </Grid>
-            {/* End main content */}
-            {/* Sidebar */}
-            <Grid item xs={12} md={4}>
-              <Paper elevation={0} className={classes.sidebarAboutBox}>
-                <Typography variant='h6' gutterBottom>
-                  About
-                </Typography>
-                <Typography>
-                  Etiam porta sem malesuada magna mollis euismod. Cras mattis
-                  consectetur purus sit amet fermentum. Aenean lacinia bibendum
-                  nulla sed consectetur.
-                </Typography>
-              </Paper>
-              <Typography
-                variant='h6'
-                gutterBottom
-                className={classes.sidebarSection}
-              >
-                Archives
-              </Typography>
-              {archives.map(archive => (
-                <Link display='block' variant='body1' href='#' key={archive}>
-                  {archive}
-                </Link>
-              ))}
-              <Typography
-                variant='h6'
-                gutterBottom
-                className={classes.sidebarSection}
-              >
-                Social
-              </Typography>
-              {social.map(network => (
-                <Link display='block' variant='body1' href='#' key={network}>
-                  {network}
-                </Link>
-              ))}
-            </Grid>
-            {/* End sidebar */}
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Placerat orci nulla pellentesque dignissim enim sit. Semper
+              feugiat nibh sed pulvinar. Neque sodales ut etiam sit amet. Magnis
+              dis parturient montes nascetur ridiculus. Platea dictumst
+              vestibulum rhoncus est. Ultrices vitae auctor eu augue ut lectus
+              arcu bibendum. Et sollicitudin ac orci phasellus egestas tellus
+              rutrum tellus. Condimentum id venenatis a condimentum vitae sapien
+              pellentesque habitant. Fames ac turpis egestas maecenas pharetra
+              convallis posuere. Nisl condimentum id venenatis a condimentum
+              vitae sapien pellentesque habitant.
+            </p>
+            Amet volutpat consequat mauris nunc congue nisi vitae suscipit
+            tellus. Sociis natoque penatibus et magnis dis parturient. Donec ac
+            odio tempor orci dapibus ultrices in iaculis. Accumsan tortor
+            posuere ac ut consequat semper. Metus aliquam eleifend mi in nulla
+            posuere sollicitudin. Tempor nec feugiat nisl pretium fusce. Vel
+            quam elementum pulvinar etiam non. Leo urna molestie at elementum
+            eu.
           </Grid>
-        </main>
+          {/* End main content */}
+          {/* Sidebar */}
+          <Grid item xs={12} md={6}>
+            <Paper elevation={0} className={classes.sidebarAboutBox}>
+              <Card className={classes.card}>
+                <CardContent className={classes.cardContent}>
+                  <WebChat />
+                </CardContent>
+              </Card>
+            </Paper>
+          </Grid>
+          {/* End sidebar */}
+        </Grid>
       </Container>
       {/* Footer */}
-      <footer className={classes.footer}>
-        <Container maxWidth='lg'>
-          <Typography variant='h6' align='center' gutterBottom>
-            Footer
-          </Typography>
-          <Typography
-            variant='subtitle1'
-            align='center'
-            color='textSecondary'
-            component='p'
-          >
-            Something here to give the footer a purpose!
-          </Typography>
+      <Container maxWidth='md' component='footer' className={classes.footer}>
+        <Box>
           <MadeWithLove />
-        </Container>
-      </footer>
+        </Box>
+      </Container>
       {/* End footer */}
     </React.Fragment>
   );
