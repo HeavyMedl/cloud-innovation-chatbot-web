@@ -1,5 +1,6 @@
 .DS_Store
 azure-express-server/build/
+package-lock.json
 
 node_modules/
 # Logs
