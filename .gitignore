@@ -1,4 +1,5 @@
 .DS_Store
+azure-express-server/build/
 
 node_modules/
 # Logs
