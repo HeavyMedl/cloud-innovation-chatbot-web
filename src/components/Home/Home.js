@@ -1,14 +1,19 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import { Card, CardContent, Paper, Divider } from '@material-ui/core';
+import {
+  AppBar,
+  Button,
+  Grid,
+  Toolbar,
+  Typography,
+  Link,
+  makeStyles,
+  Container,
+  Box,
+  Card,
+  CardContent,
+  Paper,
+  Divider
+} from '@material-ui/core';
 
 import WebChat from '../WebChat/WebChat';
 import krakenLogo from '../../images/kraken.png';
@@ -163,11 +168,6 @@ export default function Home() {
           <Grid item xs={12} md={6}>
             <Typography variant='h6'>About C.R.A.I.G.</Typography>
             <Divider />
-            {/* {posts.map(post => (
-                <Markdown className={classes.markdown} key={post.substring(0, 40)}>
-                  {post}
-                </Markdown>
-              ))} */}
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -181,13 +181,15 @@ export default function Home() {
               convallis posuere. Nisl condimentum id venenatis a condimentum
               vitae sapien pellentesque habitant.
             </p>
-            Amet volutpat consequat mauris nunc congue nisi vitae suscipit
-            tellus. Sociis natoque penatibus et magnis dis parturient. Donec ac
-            odio tempor orci dapibus ultrices in iaculis. Accumsan tortor
-            posuere ac ut consequat semper. Metus aliquam eleifend mi in nulla
-            posuere sollicitudin. Tempor nec feugiat nisl pretium fusce. Vel
-            quam elementum pulvinar etiam non. Leo urna molestie at elementum
-            eu.
+            <p>
+              Amet volutpat consequat mauris nunc congue nisi vitae suscipit
+              tellus. Sociis natoque penatibus et magnis dis parturient. Donec
+              ac odio tempor orci dapibus ultrices in iaculis. Accumsan tortor
+              posuere ac ut consequat semper. Metus aliquam eleifend mi in nulla
+              posuere sollicitudin. Tempor nec feugiat nisl pretium fusce. Vel
+              quam elementum pulvinar etiam non. Leo urna molestie at elementum
+              eu.
+            </p>
           </Grid>
           {/* End main content */}
           {/* Sidebar */}
@@ -201,6 +203,12 @@ export default function Home() {
             </Paper>
           </Grid>
           {/* End sidebar */}
+          {/* Architecture */}
+          <Grid item xs={12}>
+            <Typography variant='h6'>Architecture</Typography>
+            <Divider />
+          </Grid>
+          {/* End Architecture */}
         </Grid>
       </Container>
       {/* Footer */}
