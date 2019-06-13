@@ -16,7 +16,8 @@ import {
 } from '@material-ui/core';
 
 import WebChat from '../WebChat/WebChat';
-import krakenLogo from '../../images/kraken.png';
+import krakenLogo from '../../assets/images/kraken.png';
+import chatbotAnatomy from '../../assets/images/chatbot-anatomy.png';
 
 function MadeWithLove() {
   return (
@@ -186,7 +187,7 @@ export default function Home() {
           </Grid>
           {/* End main content */}
           {/* Sidebar */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} gutterBottom>
             <Paper elevation={0} className={classes.sidebarAboutBox}>
               <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
@@ -198,7 +199,13 @@ export default function Home() {
           {/* End sidebar */}
           {/* Architecture */}
           <Grid item xs={12}>
-            <Typography variant='h6'>Under the Hood</Typography>
+            <div>
+              <img
+                style={{ width: '100%' }}
+                src={chatbotAnatomy}
+                alt='background'
+              />
+            </div>
           </Grid>
           {/* End Architecture */}
         </Grid>

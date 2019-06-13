@@ -1,7 +1,7 @@
 import { DirectLine } from 'botframework-directlinejs';
 import React from 'react';
 import ReactWebChat from 'botframework-webchat';
-import craigPic from '../../images/craig-jelinek.png';
+import craigPic from '../../assets/images/craig-jelinek.png';
 
 const styleOptions = {
   botAvatarImage: craigPic,
