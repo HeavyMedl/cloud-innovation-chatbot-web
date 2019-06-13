@@ -54,6 +54,9 @@ const useStyles = makeStyles(theme => ({
   heroContent: {
     padding: theme.spacing(8, 0, 6)
   },
+  tagline: {
+    fontStyle: 'italic'
+  }, 
   card: {
     height: '500px'
   },
@@ -144,14 +147,19 @@ export default function Home() {
           variant='h2'
           align='center'
           color='textPrimary'
-          gutterBottom
         >
           Ask C.R.A.I.G.
         </Typography>
         <Typography
-          variant='h5'
           align='center'
           color='textSecondary'
+          className={classes.tagline}
+          gutterBottom>
+          Conversation Retail Artificial Intelligence Generator
+          </Typography>
+        <Typography
+          variant='h5'
+          align='center'
           component='p'
         >
           A loosely coupled Chatbot built on Azure serving Costco retail needs.
@@ -162,27 +170,15 @@ export default function Home() {
         <Grid container spacing={5} className={classes.mainGrid}>
           {/* Main content */}
           <Grid item xs={12} md={6}>
-            <Typography paragraph={true}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Placerat orci nulla pellentesque dignissim enim sit. Semper
-              feugiat nibh sed pulvinar. Neque sodales ut etiam sit amet. Magnis
-              dis parturient montes nascetur ridiculus. Platea dictumst
-              vestibulum rhoncus est. Ultrices vitae auctor eu augue ut lectus
-              arcu bibendum. Et sollicitudin ac orci phasellus egestas tellus
-              rutrum tellus. Condimentum id venenatis a condimentum vitae sapien
-              pellentesque habitant. Fames ac turpis egestas maecenas pharetra
-              convallis posuere. Nisl condimentum id venenatis a condimentum
-              vitae sapien pellentesque habitant.
-            </Typography>
-            <Typography paragraph={true}>
-              Amet volutpat consequat mauris nunc congue nisi vitae suscipit
-              tellus. Sociis natoque penatibus et magnis dis parturient. Donec
-              ac odio tempor orci dapibus ultrices in iaculis. Accumsan tortor
-              posuere ac ut consequat semper. Metus aliquam eleifend mi in nulla
-              posuere sollicitudin. Tempor nec feugiat nisl pretium fusce. Vel
-              quam elementum pulvinar etiam non. Leo urna molestie at elementum
-              eu.
+            <Typography variant='h4' component='h2'>
+              What can a chatbot do for Costco?
+              </Typography>
+              <Typography paragraph={true}>
+              A chatbot can provide a helpful new way to access information. 
+              Internal facing chatbots can <strong>increase productivity</strong>, <strong>reduce frustration </strong> 
+              and most importantly <strong>inject delight</strong>. External facing chatbots have <strong>driven sales </strong>, 
+              <strong>reduced errors </strong> and drastically <strong>reduced customer service calls </strong>. This type of artificial 
+              intelligence has endless applications yet to be discovered. 
             </Typography>
           </Grid>
           {/* End main content */}
