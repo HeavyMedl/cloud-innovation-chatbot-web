@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import WebChat from './components/WebChat/WebChat';
+import WebChat from './components/WebChat/WebChatWrapper';
 import IphoneWrapper from './components/IphoneWrapper/IphoneWrapper';
 import Home from './components/Home/Home';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
