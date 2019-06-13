@@ -8,11 +8,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div>
-        <Route exact path='/' component={Home} />
-        <Route path='/web' component={WebChat} />
-        <Route path='/iphone' component={IphoneWrapper} />
-      </div>
+      <Route exact path='/' component={Home} />
+      <Route path='/web' component={WebChat} />
+      <Route path='/iphone' component={IphoneWrapper} />
     </Router>
   );
 }

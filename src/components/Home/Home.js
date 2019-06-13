@@ -12,7 +12,8 @@ import {
   Card,
   CardContent,
   Paper,
-  Divider
+  Divider,
+  CssBaseline
 } from '@material-ui/core';
 
 import WebChat from '../WebChat/WebChat';
@@ -86,6 +87,7 @@ export default function Home() {
 
   return (
     <React.Fragment>
+      <CssBaseline />
       <AppBar
         position='static'
         color='default'
@@ -207,6 +209,8 @@ export default function Home() {
           <Grid item xs={12}>
             <Typography variant='h6'>Architecture</Typography>
             <Divider />
+            Technology Stack: Azure Services: - Azure Bot Service - Front End:
+            Back End: Microsoft Products Used: Front End: - React -
           </Grid>
           {/* End Architecture */}
         </Grid>
