@@ -13,9 +13,9 @@ async function main() {
   app.use(cookieParser());
   app.use(express.static('build'));
 
-  // app.get('*', async (req, res) => {
-  //   res.json({ hi: 'robert' });
-  // });
+  app.get('*', async (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
   // Create the HTTP server.
   const server = http.createServer(app);
