@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   AppBar,
-  Button,
   Grid,
   Toolbar,
   Typography,
@@ -12,7 +12,6 @@ import {
   Card,
   CardContent,
   Paper,
-  Divider,
   CssBaseline
 } from '@material-ui/core';
 
@@ -119,28 +118,22 @@ export default function Home() {
             <Link
               variant='button'
               color='textPrimary'
-              href='#'
+              to='/iphone'
+              component={RouterLink}
               className={classes.link}
             >
-              Mobile
+              Mobile Chat
             </Link>
             <Link
               variant='button'
               color='textPrimary'
-              href='#'
+              to='/web'
+              component={RouterLink}
               className={classes.link}
             >
-              Orders
+              Web Chat
             </Link>
           </nav>
-          <Button
-            href='#'
-            color='primary'
-            variant='outlined'
-            className={classes.link}
-          >
-            Login
-          </Button>
         </Toolbar>
       </AppBar>
       {/* Hero unit */}
@@ -168,9 +161,7 @@ export default function Home() {
         <Grid container spacing={5} className={classes.mainGrid}>
           {/* Main content */}
           <Grid item xs={12} md={6}>
-            <Typography variant='h6'>About C.R.A.I.G.</Typography>
-            <Divider />
-            <p>
+            <Typography paragraph={true}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Placerat orci nulla pellentesque dignissim enim sit. Semper
@@ -182,8 +173,8 @@ export default function Home() {
               pellentesque habitant. Fames ac turpis egestas maecenas pharetra
               convallis posuere. Nisl condimentum id venenatis a condimentum
               vitae sapien pellentesque habitant.
-            </p>
-            <p>
+            </Typography>
+            <Typography paragraph={true}>
               Amet volutpat consequat mauris nunc congue nisi vitae suscipit
               tellus. Sociis natoque penatibus et magnis dis parturient. Donec
               ac odio tempor orci dapibus ultrices in iaculis. Accumsan tortor
@@ -191,7 +182,7 @@ export default function Home() {
               posuere sollicitudin. Tempor nec feugiat nisl pretium fusce. Vel
               quam elementum pulvinar etiam non. Leo urna molestie at elementum
               eu.
-            </p>
+            </Typography>
           </Grid>
           {/* End main content */}
           {/* Sidebar */}
@@ -207,10 +198,7 @@ export default function Home() {
           {/* End sidebar */}
           {/* Architecture */}
           <Grid item xs={12}>
-            <Typography variant='h6'>Architecture</Typography>
-            <Divider />
-            Technology Stack: Azure Services: - Azure Bot Service - Front End:
-            Back End: Microsoft Products Used: Front End: - React -
+            <Typography variant='h6'>Under the Hood</Typography>
           </Grid>
           {/* End Architecture */}
         </Grid>
