@@ -6,6 +6,11 @@ import {
   Toolbar,
   Typography,
   Link,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  ListSubheader,
   makeStyles,
   Container,
   Box,
@@ -14,6 +19,11 @@ import {
   Paper,
   CssBaseline
 } from '@material-ui/core';
+import FastfoodIcon from '@material-ui/icons/Fastfood';
+import NavigationIcon from '@material-ui/icons/Navigation';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import LanguageIcon from '@material-ui/icons/Language';
 
 import WebChat from '../WebChat/WebChat';
 import krakenLogo from '../../assets/images/kraken.png';
@@ -56,7 +66,7 @@ const useStyles = makeStyles(theme => ({
   },
   tagline: {
     fontStyle: 'italic'
-  }, 
+  },
   card: {
     height: '500px'
   },
@@ -87,7 +97,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function Home() {
   const classes = useStyles();
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -154,14 +163,11 @@ export default function Home() {
           align='center'
           color='textSecondary'
           className={classes.tagline}
-          gutterBottom>
-          Conversation Retail Artificial Intelligence Generator
-          </Typography>
-        <Typography
-          variant='h5'
-          align='center'
-          component='p'
+          gutterBottom
         >
+          Conversation Retail Artificial Intelligence Generator
+        </Typography>
+        <Typography variant='h5' align='center' component='p'>
           A loosely coupled Chatbot built on Azure serving Costco retail needs.
         </Typography>
       </Container>
@@ -172,18 +178,67 @@ export default function Home() {
           <Grid item xs={12} md={6}>
             <Typography variant='h4' component='h2'>
               What can a chatbot do for Costco?
-              </Typography>
-              <Typography paragraph={true}>
-              A chatbot can provide a helpful new way to access information. 
-              Internal facing chatbots can <strong>increase productivity</strong>, <strong>reduce frustration </strong> 
-              and most importantly <strong>inject delight</strong>. External facing chatbots have <strong>driven sales </strong>, 
-              <strong>reduced errors </strong> and drastically <strong>reduced customer service calls </strong>. This type of artificial 
-              intelligence has endless applications yet to be discovered. 
             </Typography>
+            <Typography paragraph={true}>
+              A chatbot can provide a helpful new way to access information.
+              Internal facing chatbots can{' '}
+              <strong>increase productivity</strong>,{' '}
+              <strong>reduce frustration </strong>
+              and most importantly <strong>inject delight</strong>. External
+              facing chatbots have <strong>driven sales</strong>,&nbsp;
+              <strong>reduced errors </strong> and drastically{' '}
+              <strong>reduced customer service calls</strong>. This type of
+              artificial intelligence has endless applications yet to be
+              discovered.
+            </Typography>
+            <List
+              component='nav'
+              subheader={
+                <ListSubheader
+                  disableSticky={true}
+                  component='div'
+                  id='nested-list-subheader'
+                >
+                  Available Services
+                </ListSubheader>
+              }
+              aria-label='service demos'
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <FastfoodIcon />
+                </ListItemIcon>
+                <ListItemText primary='Find Menu' />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <NavigationIcon />
+                </ListItemIcon>
+                <ListItemText primary='Navigation' />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <RemoveShoppingCartIcon />
+                </ListItemIcon>
+                <ListItemText primary='Return Item' />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <AccessTimeIcon />
+                </ListItemIcon>
+                <ListItemText primary='Warehouse Hours' />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <LanguageIcon />
+                </ListItemIcon>
+                <ListItemText primary='Translate' />
+              </ListItem>
+            </List>
           </Grid>
           {/* End main content */}
           {/* Sidebar */}
-          <Grid item xs={12} md={6} gutterBottom>
+          <Grid item xs={12} md={6}>
             <Paper elevation={0} className={classes.sidebarAboutBox}>
               <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
